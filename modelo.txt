@@ -1,0 +1,11 @@
+doc 1 a doc5 - musicas de carnaval
+doc6 a doc 15 - carnaval no Brasil
+doc16 a doc 20 - carnaval no mundo 
+------
+doc 21 a doc25 - musicas de futebol
+doc26 a doc 35 - futebol no Brasil
+doc36 a doc 40 - futebol no mundo 
+------
+doc 41 a doc45 - musicas de samba
+doc46 a doc 55 - samba no Brasil
+doc56 a doc 60 - samba no mundo 
