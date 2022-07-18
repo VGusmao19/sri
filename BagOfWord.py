@@ -8,8 +8,8 @@ import re
 
 def Processamento(Texto): #Formatar documentação (Retorna uma Lista com as palavras formatadas)
         numero = r'[0-9]'
-        stemmer = RSLPStemmer()
-        stopwords = nltk.corpus.stopwords.words('portuguese')
+        stemmer = RSLPStemmer() #palavras com radicais
+        stopwords = nltk.corpus.stopwords.words('portuguese') #preposições de stopwords
         TextoSemNumero = [data for data in Texto if not data.isdigit()] # remover numeros
         TextoPreFormatado = [data for data in TextoSemNumero if data not in stopwords] # remover stopwords    
         for i in range (len(TextoPreFormatado)):
@@ -22,9 +22,7 @@ def Processamento(Texto): #Formatar documentação (Retorna uma Lista com as pal
                          TextoPreFormatado[i] = stemmer.stem(TextoPreFormatado[i]) #Radical da Palavra
         TextoFormatado = []
         for palavra in TextoPreFormatado:
-                if palavra.strip() and len(palavra) >3 : #Remover espaços em brancos e palavras com tamanho menor que 3
-                        TextoFormatado.append(palavra)
-        #print(TextoFormatado)
+                TextoFormatado.append(palavra)
         return TextoFormatado
 
 def Tokenizacao(Arquivos): # Tokenizacao de todos os Documentos

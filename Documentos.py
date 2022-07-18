@@ -30,20 +30,12 @@ def GetArquivos(): # Lista com Os Arquivos (nome e conteudo)
         #print(text_file(file_path)) 
     return Arquivos
 
-"""def PrintArquivosResultado(Calculo):
-    index = 1
-    for item in sorted(Calculo, key = Calculo.get):
-        print(f'********************************{index}********************************')
-        print (item)
-        index += 1
-        if (index == 6):
-            break"""
 
 def PrintArquivosResultado(Calculo):
     index = 1
     retorno = []
     for item in sorted(Calculo, key = Calculo.get):
-        retorno.append(f'\n********************************{index}********************************\n')
+        retorno.append(f'********************************{index}********************************')
         retorno.append(item)
         index += 1
         if (index == 6):
