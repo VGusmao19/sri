@@ -1,5 +1,6 @@
 from os import listdir, name
 from os.path import isfile, join
+import os
 
 from nltk import text
 
@@ -16,16 +17,17 @@ class Documento:
 
 def text_file(file_path): 
     with open(file_path, 'r', encoding="utf-8") as f:
-        Doc = Documento(file_path.replace('C:/Users/vinny/Documents/projeto eng info/docs',''),f.read()) 
-        return Doc
+        Doc = Documento(file_path.replace('/home/pedro/Documentos/sri/docs',''),f.read()) 
+        return Doc.text
+
 
 
 def GetArquivos(): # Lista com Os Arquivos (nome e conteudo)
     Arquivos = []
-    path = 'C:/Users/vinny/Documents/projeto eng info/docs'
+    path = '/home/pedro/Documentos/sri/docs'
     arquivos = [f for f in listdir(path) if isfile(join(path, f))] # Nome dos Arquivos
     for file in arquivos: # Percorer a lista
-        file_path = f"{path}\{file}"
+        file_path = f"{path}/{file}"
         Arquivos.append(text_file(file_path))
         #print(text_file(file_path)) 
     return Arquivos

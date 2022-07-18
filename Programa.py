@@ -1,11 +1,10 @@
 from cgitb import text
 import math
-import tkinter
 from typing import Dict
 from nltk.tokenize import word_tokenize
 from nltk.cluster import cosine_distance
 from operator import itemgetter
-
+from PIL import ImageTk, Image
 import numpy as np
 from BagOfWord import Processamento, Tokenizacao
 from Documentos import GetArquivos, PrintArquivosResultado
@@ -77,12 +76,13 @@ def CossenoDistance(TokenPesquisa,Arquivos):
 
 def main() -> None:
         janela = Tk()
-        janela.title("SRI JPedro e Vinnycios")
+        janela.title("Goospel by JPedro e Vinnycios")
         janela.geometry("1280x720")
         texto_busca = Label(janela, text='Procurar:')
         texto_busca.grid(column=0, row=0)
         entrada = Entry(janela, width=150)
         entrada.grid(column=1, row=0)
+
         def recebe_entrada():
                 input = entrada.get()
                 print(input)
@@ -91,12 +91,18 @@ def main() -> None:
                 TokenPesquisa = Token(PesquisaFormatada)
                 Arquivos = GetArquivos() # Lista com Arquivos
                 Tokens = Tokenizacao(Arquivos) # Map <Texto,Token>
-                CossenoDistancia = CossenoDistance(TokenPesquisa,Tokens)
+                try:
+                        CossenoDistancia = CossenoDistance(TokenPesquisa,Tokens)
+                        print(CossenoDistancia)
+                        resultados = PrintArquivosResultado(CossenoDistancia)
+                        print(type(resultados))
+                except ZeroDivisionError:
+                        resultados = ['sem resultados']
                 #PrintArquivosResultado(CossenoDistancia) 
-                resultados = PrintArquivosResultado(CossenoDistancia)
                 label = Label(janela, text=resultados, width=150, font="arial 5")
                 label.grid(column=0, row=2)
-        botao = Button(janela, text='Find', command=recebe_entrada)
+        
+        botao = Button(janela, text='Buscar', command=recebe_entrada)
         botao.grid(column=2, row=0)
         janela.mainloop()
 
@@ -111,8 +117,5 @@ def main() -> None:
         PrintArquivosResultado(CossenoDistancia)"""
 
 
-
 if __name__ == '__main__':
-        main()
-
-
+        main()    

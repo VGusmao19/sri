@@ -30,6 +30,6 @@ def Processamento(Texto): #Formatar documentação (Retorna uma Lista com as pal
 def Tokenizacao(Arquivos): # Tokenizacao de todos os Documentos
         Tokens = {}
         for documento in Arquivos:
-                Texto = word_tokenize(documento.text) #Tokenizar conteudo
-                Tokens[documento.text] = Processamento(Texto)
+                Texto = word_tokenize(documento) #Tokenizar conteudo
+                Tokens[documento] = Processamento(Texto)
         return Tokens
