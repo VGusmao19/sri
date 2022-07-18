@@ -75,12 +75,20 @@ def CossenoDistance(TokenPesquisa,Arquivos):
 
 
 def main() -> None:
+<<<<<<< HEAD
         janela = Tk()
         janela.title("Goospel by JPedro e Vinnycios")
+=======
+        """janela = Tk()
+        janela.title("SRI JPedro e Vinnycios")
+>>>>>>> 2ebed87518054c07d3fb7c9f294fc46f6ea41703
         janela.geometry("1280x720")
+        img = PhotoImage(file="C:/Users/vinny/Desktop/engInfo/imagens/imagem.png")
+        label_image = Label(janela, image=img)
+        label_image.grid(column=0,row=0)
         texto_busca = Label(janela, text='Procurar:')
-        texto_busca.grid(column=0, row=0)
-        entrada = Entry(janela, width=150)
+        texto_busca.grid(column=1, row=0)
+        entrada = Entry(janela, width=50)
         entrada.grid(column=1, row=0)
 
         def recebe_entrada():
@@ -99,23 +107,26 @@ def main() -> None:
                 except ZeroDivisionError:
                         resultados = ['sem resultados']
                 #PrintArquivosResultado(CossenoDistancia) 
+<<<<<<< HEAD
                 label = Label(janela, text=resultados, width=150, font="arial 5")
+=======
+                resultados = PrintArquivosResultado(CossenoDistancia)
+                label = Label(janela, text=resultados, width=150, font="arial 7")
+>>>>>>> 2ebed87518054c07d3fb7c9f294fc46f6ea41703
                 label.grid(column=0, row=2)
         
         botao = Button(janela, text='Buscar', command=recebe_entrada)
         botao.grid(column=2, row=0)
-        janela.mainloop()
+        janela.mainloop()"""
 
-        #Pesquisa = input('Busca:') # Valor que quero buscar
-        """Pesquisa = recebe_entrada()
+        Pesquisa = input('Busca:') # Valor que quero buscar
+        #Pesquisa = recebe_entrada()
         PesquisaFormatada = Processamento(word_tokenize(Pesquisa)) #Tokenizar e formatar busca
         TokenPesquisa = Token(PesquisaFormatada)
         Arquivos = GetArquivos() # Lista com Arquivos
         Tokens = Tokenizacao(Arquivos) # Map <Texto,Token>
         CossenoDistancia = CossenoDistance(TokenPesquisa,Tokens)
-
-        PrintArquivosResultado(CossenoDistancia)"""
-
+        #PrintArquivosResultado(CossenoDistancia)
 
 if __name__ == '__main__':
         main()    
